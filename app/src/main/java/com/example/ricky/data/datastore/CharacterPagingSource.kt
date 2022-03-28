@@ -1,4 +1,4 @@
-package com.example.ricky.data
+package com.example.ricky.data.datastore
 
 import android.net.Uri
 import androidx.paging.PagingSource
@@ -7,9 +7,6 @@ import com.example.ricky.api.RetrofitService
 import com.example.ricky.data.models.CharacterData
 
 class CharacterPagingSource (private val retrofitService: RetrofitService) : PagingSource<Int, CharacterData>() {
-    override fun getRefreshKey(state: PagingState<Int, CharacterData>): Int? {
-        return state.anchorPosition
-    }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, CharacterData> {
         return try {
@@ -28,5 +25,9 @@ class CharacterPagingSource (private val retrofitService: RetrofitService) : Pag
         }catch(e: Exception){
             LoadResult.Error(e)
         }
+    }
+
+    override fun getRefreshKey(state: PagingState<Int, CharacterData>): Int? {
+        return state.anchorPosition
     }
 }
