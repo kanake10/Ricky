@@ -1,6 +1,7 @@
-package com.example.ricky.data.models
+package com.example.ricky.models
 
 data class CharacterData(
     val name: String?,
     val species : String?,
-    val image: String?)
+    val image: String?
+    )

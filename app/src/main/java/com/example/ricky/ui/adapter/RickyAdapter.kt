@@ -6,7 +6,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.ricky.data.models.CharacterData
+import com.example.ricky.models.CharacterData
 import com.example.ricky.databinding.RickyItemBinding
 
 class RickyAdapter : PagingDataAdapter<CharacterData, RickyAdapter.MyViewHolder>(DiffUtilCallBack()) {

@@ -4,7 +4,7 @@ import android.net.Uri
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.ricky.api.RetrofitService
-import com.example.ricky.data.models.CharacterData
+import com.example.ricky.models.CharacterData
 
 class CharacterPagingSource (private val retrofitService: RetrofitService) : PagingSource<Int, CharacterData>() {
 

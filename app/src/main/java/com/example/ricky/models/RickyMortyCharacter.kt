@@ -1,4 +1,4 @@
-package com.example.ricky.data.models
+package com.example.ricky.models
 
 
 data class RickyMortyCharacter (

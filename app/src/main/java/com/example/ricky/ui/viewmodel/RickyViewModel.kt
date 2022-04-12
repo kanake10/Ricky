@@ -8,7 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import com.example.ricky.data.RickyRepository
-import com.example.ricky.data.models.CharacterData
+import com.example.ricky.models.CharacterData
 
 @HiltViewModel
 class RickyViewModel @Inject constructor

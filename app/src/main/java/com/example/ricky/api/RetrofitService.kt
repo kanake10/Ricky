@@ -1,7 +1,7 @@
 package com.example.ricky.api
 
 import com.example.ricky.core.Constants.END_POINT
-import com.example.ricky.data.models.RickyMortyCharacter
+import com.example.ricky.models.RickyMortyCharacter
 import retrofit2.http.GET
 import retrofit2.http.Query
 

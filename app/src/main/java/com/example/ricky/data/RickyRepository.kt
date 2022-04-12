@@ -5,7 +5,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.example.ricky.api.RetrofitService
 import com.example.ricky.data.datastore.CharacterPagingSource
-import com.example.ricky.data.models.CharacterData
+import com.example.ricky.models.CharacterData
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
