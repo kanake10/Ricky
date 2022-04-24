@@ -13,6 +13,10 @@
         android:padding="10dp"
         android:background="#3c3e44">
 
+
+
+
+
         <ImageView
             android:id="@+id/characterImage"
             android:layout_width="150dp"
