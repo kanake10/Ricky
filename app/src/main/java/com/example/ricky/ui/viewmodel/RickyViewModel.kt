@@ -14,7 +14,7 @@ import com.example.ricky.models.CharacterData
 class RickyViewModel @Inject constructor
     (private val rickyRepository: RickyRepository) : ViewModel() {
 
-    fun getListData() : Flow<PagingData<CharacterData>> {
+    fun getListData(): Flow<PagingData<CharacterData>> {
         return rickyRepository.getCharacter().cachedIn(viewModelScope)
     }
 }

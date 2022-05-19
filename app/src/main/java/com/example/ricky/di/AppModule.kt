@@ -1,6 +1,6 @@
 package com.example.ricky.di
 
-import com.example.ricky.api.RetrofitService
+import com.example.ricky.api.RickyApi
 import com.example.ricky.core.Constants.BASE_URL
 import com.example.ricky.data.RickyRepository
 import dagger.Module
@@ -20,11 +20,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 object AppModule{
 
     @Provides
-    fun providesBaseUrl() : String{
-        return BASE_URL
-    }
-
-    @Provides
     fun providesHttpLoggingInterceptor() : HttpLoggingInterceptor {
         return HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
     }
@@ -33,10 +28,10 @@ object AppModule{
     fun providesOkhttpClient(interceptor : HttpLoggingInterceptor) : OkHttpClient {
         val okHttpClient = OkHttpClient.Builder()
             .addInterceptor(interceptor)
-            .callTimeout(60, TimeUnit.SECONDS)
-            .connectTimeout(60, TimeUnit.SECONDS)
-            .readTimeout(60, TimeUnit.SECONDS)
-            .writeTimeout(60, TimeUnit.SECONDS)
+            .callTimeout(50, TimeUnit.SECONDS)
+            .connectTimeout(50, TimeUnit.SECONDS)
+            .readTimeout(50, TimeUnit.SECONDS)
+            .writeTimeout(50, TimeUnit.SECONDS)
         return okHttpClient.build()
     }
 
@@ -55,12 +50,17 @@ object AppModule{
     }
 
     @Provides
-    fun providesRetrofitService(retrofit: Retrofit) : RetrofitService {
-        return retrofit.create(RetrofitService::class.java)
+    fun providesRetrofitService(retrofit: Retrofit) : RickyApi {
+        return retrofit.create(RickyApi::class.java)
     }
 
     @Provides
-    fun providesRickyRepository(retrofitService: RetrofitService) : RickyRepository {
-        return RickyRepository(retrofitService)
+    fun providesRickyRepository(rickyApi: RickyApi) : RickyRepository {
+        return RickyRepository(rickyApi)
+    }
+
+    @Provides
+    fun providesBaseUrl() : String{
+        return BASE_URL
     }
 }

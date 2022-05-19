@@ -5,7 +5,7 @@ import com.example.ricky.models.RickyMortyCharacter
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface RetrofitService {
+interface RickyApi {
     @GET(END_POINT)
     suspend fun getCharacters(
         @Query
