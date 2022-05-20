@@ -34,7 +34,6 @@ class RickyAdapter : PagingDataAdapter<CharacterData, RickyAdapter.MyViewHolder>
 
             Glide.with(binding.characterImage)
                 .load(characterData.image)
-                .circleCrop()
                 .into(binding.characterImage)
         }
     }
