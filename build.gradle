@@ -10,6 +10,8 @@ buildscript {
     ext.coroutines_core_version = "1.5.0-RC"
     ext.nav_version = "2.3.5"
     ext.hilt_version = "2.38.1"
+    ext.ktlintPluginVersion = "10.0.0"
+    ext.detektVersion = "1.17.0"
     ext.jetpack_hilt_version = "1.0.0-alpha03"
     ext.jetpack_hilt_version_compiler = "1.0.0-beta01"
     ext.glide_version = "4.12.0"
@@ -17,7 +19,8 @@ buildscript {
 
     dependencies {
         classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
-        classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.17.1"
+        classpath "org.jlleitschuh.gradle:ktlint-gradle:$ktlintPluginVersion"
+        classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:$detektVersion"
     }
 
 }
@@ -27,7 +30,11 @@ plugins {
     id 'com.android.library' version '7.1.2' apply false
     id 'org.jetbrains.kotlin.android' version '1.6.20' apply false
 }
-apply plugin: "io.gitlab.arturbosch.detekt"
+subprojects {
+    apply from: "../scripts/ktlint.gradle"
+    apply from: "../scripts/detekt.gradle"
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
