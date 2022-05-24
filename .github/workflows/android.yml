@@ -3,8 +3,6 @@ name: Android Build
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build:
@@ -22,7 +20,7 @@ jobs:
         run: ./gradlew build
 
       - name: Make gradlew executable
-              run: chmod +x ./gradlew
+        run: chmod +x ./gradlew
 
       - name: Run Tests
         run: ./gradlew test
